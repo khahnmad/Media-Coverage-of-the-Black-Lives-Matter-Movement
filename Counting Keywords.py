@@ -12,7 +12,6 @@ center_file = 'C:/Users/khahn/PycharmProjects/NLP Protests/article database/Prot
 right_file = 'C:/Users/khahn/PycharmProjects/NLP Protests/article database/Protests Links - Right.csv'
 farright_file = 'C:/Users/khahn/PycharmProjects/NLP Protests/article database/Protests Links - Far Right.csv'
 dictionaryNames = ['black_indicators', 'white_indicators', 'other', 'protest_words', 'riot_words']
-print(dictionaryNames)
 
 
 # Frequency of the words in the categories of article
@@ -25,21 +24,21 @@ farright_text = pf.open_file(farright_file)
 all_text = farleft_text + left_text + farright_text
 
 # Plot the most frequent words per leaning
-# a = pf.plot_freqWords(farleft_text, 'Most frequent far left words')
-# b = pf.plot_freqWords(left_text, 'Most frequent left words')
-# c = pf.plot_freqWords(center_text, 'Most frequent center words')
-# d = pf.plot_freqWords(right_text, 'Most frequent right words')
-# e = pf.plot_freqWords(farright_text, 'Most frequent far right words')
-# f = pf.plot_freqWords(all_text, 'Most frequent words from all text')
+a = pf.plot_freqWords(farleft_text, 'Most frequent far left words')
+b = pf.plot_freqWords(left_text, 'Most frequent left words')
+c = pf.plot_freqWords(center_text, 'Most frequent center words')
+d = pf.plot_freqWords(right_text, 'Most frequent right words')
+e = pf.plot_freqWords(farright_text, 'Most frequent far right words')
+f = pf.plot_freqWords(all_text, 'Most frequent words from all text')
 
 
 # Find the frequency of the keywords given
-all_indicators = pf.count_keywordfreq(all_text, dictionaryNames)
-farleft_indicators = pf.count_keywordfreq(farleft_text, dictionaryNames)
-left_indicators = pf.count_keywordfreq(left_text, dictionaryNames)
-center_indicators = pf.count_keywordfreq(center_text, dictionaryNames)
-right_indicators = pf.count_keywordfreq(right_text, dictionaryNames)
-farright_indicators = pf.count_keywordfreq(farright_text, dictionaryNames)
+all_indicators = pf.count_keywordfreq(all_text, dictionaryNames, pf.variablesDict)
+farleft_indicators = pf.count_keywordfreq(farleft_text, dictionaryNames, pf.variablesDict)
+left_indicators = pf.count_keywordfreq(left_text, dictionaryNames, pf.variablesDict)
+center_indicators = pf.count_keywordfreq(center_text, dictionaryNames, pf.variablesDict)
+right_indicators = pf.count_keywordfreq(right_text, dictionaryNames, pf.variablesDict)
+farright_indicators = pf.count_keywordfreq(farright_text, dictionaryNames, pf.variablesDict)
 
 # Plot the frequency of the keywords given
 # g = pf.plot_freqWords(all_indicators, 'All Indicators')
@@ -69,7 +68,8 @@ for word, count in farright_indicators:
 
 all_info = [words, frequency, leaning]
 df = pd.DataFrame(all_info).transpose()
-df.columns = ['Words', 'Frequency', 'Leaning']
+df.columns = ['Words', 'Frequency', 'Political Leaning']
 
-sns.catplot(x='Words',y='Frequency',hue='Leaning', data=df, kind='bar')
+plot = sns.catplot(x='Words',y='Frequency',hue='Political Leaning', data=df, kind='bar')
+# plot.set_title('Frequency of Key Words from Newspapers across the Political Spectrum Covering the Black Lives Matter Protests')
 plt.show()
