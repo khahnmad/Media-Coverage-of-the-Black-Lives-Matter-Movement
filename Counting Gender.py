@@ -1,6 +1,3 @@
-# To do
-
-
 # Imports
 import Protests_Functions as pf
 import seaborn as sns
@@ -59,30 +56,6 @@ frequency = [farleft_indicatorsm, left_indicatorsm, center_indicatorsm, right_in
 words = ['Male gender', 'Male gender', 'Male gender', 'Male gender', 'Male gender', 'Female gender', 'Female gender',
          'Female gender', 'Female gender', 'Female gender']
 leaning = ['Far left', 'Left', 'Center', 'Right', 'Far Right', 'Far left', 'Left', 'Center', 'Right', 'Far Right']
-
-
-# words, frequency, leaning = [],[],[]
-# for word, count in farleft_indicators:
-#     words.append(word)
-#     frequency.append(count)
-#     leaning.append('Far Left')
-# for word, count in left_indicators:
-#     words.append(word)
-#     frequency.append(count)
-#     leaning.append('Left')
-# for word, count in center_indicators:
-#     words.append(word)
-#     frequency.append(count)
-#     leaning.append('Center')
-# for word, count in right_indicators:
-#     words.append(word)
-#     frequency.append(count)
-#     leaning.append('Right')
-# for word, count in farright_indicators:
-#     words.append(word)
-#     frequency.append(count)
-#     leaning.append('Far Right')
-# print('sorted all the words')
 
 
 all_info = [words, frequency, leaning]
